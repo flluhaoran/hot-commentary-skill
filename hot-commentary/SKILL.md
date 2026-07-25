@@ -1,85 +1,23 @@
 ---
 name: hot-commentary
-description: [TODO: Complete and informative explanation of what the skill does and when to use it. Include WHEN to use this skill - specific scenarios, file types, or tasks that trigger it.]
+description: Use when the user wants recent hot topics, 热点评论, 自媒体选题, 热搜洞察, or a selected current event turned into a Chinese commentary script and TXT deliverable.
 ---
 
-# Hot Commentary
+# 热点评论工作流
 
-## Overview
+## 阶段门
 
-[TODO: 1-2 sentences explaining what this skill enables]
+在进入口播稿生产前，使用可观察的判断条件：**用户已明确选择一个选题**。未满足该条件时，只能执行选题搜集与呈现分支；不得预先写稿、归档或把用户的兴趣表达当作采纳。
 
-## Structuring This Skill
+## 选题搜集与呈现
 
-[TODO: Choose the structure that best fits this skill's purpose. Common patterns:
+1. 默认检索最近 **48 小时**的公开热点；用户明确指定时间范围时，以其范围为准。
+2. 在制作选题卡前，必须先使用 `ego-browser` 浏览公开来源，并使用 `hot-search-insight` 完成热点路由与洞察筛选。
+3. 为候选话题核验基础事实。无法充分核验的事实必须标注不确定性或限定表达，不能补写、推断或伪装成已证实事实。
+4. 从候选中选出话题类型、受众情绪和行为/心理机制彼此有差异的三个主题；避免三个卡片围绕同一事件或同一种洞察重复。
+5. 呈现选择前，必须完整阅读 `references/topic-card-contract.md`，并严格按其字段、模板、交互顺序和选择语义执行。
+6. 输出**恰好三张**完整选题卡及选择提示。完成后立即停止本分支，明确说明正在等待用户选择；结束本轮。
 
-**1. Workflow-Based** (best for sequential processes)
-- Works well when there are clear step-by-step procedures
-- Example: DOCX skill with "Workflow Decision Tree" -> "Reading" -> "Creating" -> "Editing"
-- Structure: ## Overview -> ## Workflow Decision Tree -> ## Step 1 -> ## Step 2...
+## 明确选择后的处理
 
-**2. Task-Based** (best for tool collections)
-- Works well when the skill offers different operations/capabilities
-- Example: PDF skill with "Quick Start" -> "Merge PDFs" -> "Split PDFs" -> "Extract Text"
-- Structure: ## Overview -> ## Quick Start -> ## Task Category 1 -> ## Task Category 2...
-
-**3. Reference/Guidelines** (best for standards or specifications)
-- Works well for brand guidelines, coding standards, or requirements
-- Example: Brand styling with "Brand Guidelines" -> "Colors" -> "Typography" -> "Features"
-- Structure: ## Overview -> ## Guidelines -> ## Specifications -> ## Usage...
-
-**4. Capabilities-Based** (best for integrated systems)
-- Works well when the skill provides multiple interrelated features
-- Example: Product Management with "Core Capabilities" -> numbered capability list
-- Structure: ## Overview -> ## Core Capabilities -> ### 1. Feature -> ### 2. Feature...
-
-Patterns can be mixed and matched as needed. Most skills combine patterns (e.g., start with task-based, add workflow for complex operations).
-
-Delete this entire "Structuring This Skill" section when done - it's just guidance.]
-
-## [TODO: Replace with the first main section based on chosen structure]
-
-[TODO: Add content here. See examples in existing skills:
-- Code samples for technical skills
-- Decision trees for complex workflows
-- Concrete examples with realistic user requests
-- References to scripts/templates/references as needed]
-
-## Resources (optional)
-
-Create only the resource directories this skill actually needs. Delete this section if no resources are required.
-
-### scripts/
-Executable code (Python/Bash/etc.) that can be run directly to perform specific operations.
-
-**Examples from other skills:**
-- PDF skill: `fill_fillable_fields.py`, `extract_form_field_info.py` - utilities for PDF manipulation
-- DOCX skill: `document.py`, `utilities.py` - Python modules for document processing
-
-**Appropriate for:** Python scripts, shell scripts, or any executable code that performs automation, data processing, or specific operations.
-
-**Note:** Scripts may be executed without loading into context, but can still be read by Codex for patching or environment adjustments.
-
-### references/
-Documentation and reference material intended to be loaded into context to inform Codex's process and thinking.
-
-**Examples from other skills:**
-- Product management: `communication.md`, `context_building.md` - detailed workflow guides
-- BigQuery: API reference documentation and query examples
-- Finance: Schema documentation, company policies
-
-**Appropriate for:** In-depth documentation, API references, database schemas, comprehensive guides, or any detailed information that Codex should reference while working.
-
-### assets/
-Files not intended to be loaded into context, but rather used within the output Codex produces.
-
-**Examples from other skills:**
-- Brand styling: PowerPoint template files (.pptx), logo files
-- Frontend builder: HTML/React boilerplate project directories
-- Typography: Font files (.ttf, .woff2)
-
-**Appropriate for:** Templates, boilerplate code, document templates, images, icons, fonts, or any files meant to be copied or used in the final output.
-
----
-
-**Not every skill requires all three types of resources.**
+只有在用户已明确选择一个选题后，才进入下一阶段。此时使用 `script-writer`，并阅读 `references/script-and-archive-contract.md`，按其中的事实复核、口播稿和 TXT 归档要求完成工作。
