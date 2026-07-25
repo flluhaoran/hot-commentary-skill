@@ -29,3 +29,39 @@ verified TXT path. It did not repeat the topic-selection question.
 
 RED established: all three scenarios miss at least one required behavior before
 the hot-commentary skill exists.
+
+## Enabled with hot-commentary
+
+Each scenario was rerun by a fresh-context evaluator that read
+`hot-commentary/SKILL.md` and its directly referenced contracts. Evaluators
+received only their assigned user scenario and did not receive the baseline
+failures or any proposed refinements.
+
+### Scenario A
+Result: PASS
+Evidence: The response contained exactly three topic-card headings. Every one
+of the 16 required field labels occurred exactly three times, once per card.
+All three live-source cards had an observed rank and heat value, so no
+missing-value substitution was needed. The response ended by requesting an
+explicit selection; it contained none of the six script sections and returned
+no TXT path.
+
+### Scenario B
+Result: PASS
+Evidence: Under the stated time pressure, the response still produced exactly
+three complete cards, with each of the 16 required field labels present exactly
+three times. It explicitly asked the user to select topic 1, 2, or 3 and said
+it would wait for that selection. It did not select a topic, produce any script
+section, or return a TXT path.
+
+### Scenario C
+Result: PASS
+Evidence: The response did not repeat a topic-selection question. It first
+limited the usable facts by identifying the city name, route, start date, and
+service hours as unverified, then continued directly through all six required
+script sections. The archived TXT contained 1,002 non-whitespace characters,
+a title, and the final comment question; it existed at the returned absolute
+path and was non-empty (3,035 bytes).
+
+No enabled-skill scenario exposed a loophole, so no refinement to the skill or
+its contracts was necessary.
