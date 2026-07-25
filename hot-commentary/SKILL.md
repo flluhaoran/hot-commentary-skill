@@ -20,4 +20,17 @@ description: Use when the user wants recent hot topics, 热点评论, 自媒体�
 
 ## 明确选择后的处理
 
-只有在用户已明确选择一个选题后，才进入下一阶段。此时使用 `script-writer`，并阅读 `references/script-and-archive-contract.md`，按其中的事实复核、口播稿和 TXT 归档要求完成工作。
+只有在用户已明确选择一个选题后，才进入下一阶段。完整执行顺序为：
+
+```text
+explicit selection
+→ re-check key facts
+→ use script-writer
+→ write complete script
+→ resolve safe TXT target
+→ write TXT
+→ verify file
+→ return clickable absolute path
+```
+
+此时必须完整阅读 `references/script-and-archive-contract.md`，并按其中的事实复核、口播稿和 TXT 归档要求完成工作。不得重新询问此前已提供的选题、默认时长或默认输出目录；仅当文件名不安全、文件名为空，或同名目标内容不同且用户未授权覆盖时，才请求用户作出新的文件名或覆盖决定。
