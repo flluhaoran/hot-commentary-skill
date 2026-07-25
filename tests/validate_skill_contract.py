@@ -39,7 +39,7 @@ assert "950—1300" in script
 assert "/Users/zhangqiuyue/吕浩然/热点评论" in script
 assert "不得静默覆盖" in script
 assert re.search(
-    r"^display_name:\s*['\"]?热点评论['\"]?\s*$",
+    r"^[ \t]*display_name:\s*['\"]?热点评论['\"]?\s*$",
     openai,
     re.MULTILINE,
 )
