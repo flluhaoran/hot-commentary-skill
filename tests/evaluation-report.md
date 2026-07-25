@@ -66,3 +66,23 @@ whose spoken body contained 968 Han characters by the same counting rule.
 The first C TXT and both fix-round C TXT files were moved from the production
 archive into the plan's SDD workspace as retained test evidence. No matching
 night-bus test artifact remains in the production archive.
+
+## Local installation verification — 2026-07-25
+
+- Installed path: `/Users/zhangqiuyue/.codex/skills/hot-commentary`.
+- Pre-install guard: the target path was absent, so no existing installation
+  was overwritten.
+- Exact-install check: `diff -qr` between the repository `hot-commentary/`
+  directory and the installed path produced no output.
+- Official validation: the direct validator invocation initially stopped before
+  validation with `ModuleNotFoundError: No module named 'yaml'`. PyYAML was then
+  installed only into `/private/tmp/hot-commentary-validator.QKtwXl/venv` and
+  the official `quick_validate.py` command completed with `Skill is valid!`.
+- Fresh-context trigger smoke test: NOT RUN. An ephemeral, read-only `codex
+  exec` session was prepared with the required Chinese prompt. Its first run
+  could not create the Codex state database under the read-only sandbox. The
+  required escalated retry was rejected because opening a fresh session can send
+  the prompt and local skill/workspace contents to an external model service,
+  and the user had not explicitly authorized that disclosure. Consequently,
+  there is no evidence yet that a fresh agent selected the skill or stopped
+  after exactly three complete cards.
