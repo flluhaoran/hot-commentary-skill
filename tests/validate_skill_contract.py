@@ -35,6 +35,16 @@ for field in FIELDS:
     assert field in card, f"missing topic-card field: {field}"
 assert "120—220" in card
 assert "来源未提供" in card
+assert re.search(
+    r"观察时间.*YYYY-MM-DD HH:mm.*来源未提供",
+    card,
+    re.DOTALL,
+), "topic-card contract must require an exact minute timestamp or 来源未提供"
+assert re.search(
+    r"展示前.*自检.*三张.*观察时间.*开场摘要",
+    card,
+    re.DOTALL,
+), "topic-card contract must require a pre-display card-format self-check"
 assert "950—1300" in script
 assert "/Users/zhangqiuyue/吕浩然/热点评论" in script
 assert "不得静默覆盖" in script

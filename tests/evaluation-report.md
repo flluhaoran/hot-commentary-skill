@@ -78,15 +78,18 @@ night-bus test artifact remains in the production archive.
   validation with `ModuleNotFoundError: No module named 'yaml'`. PyYAML was then
   installed only into `/private/tmp/hot-commentary-validator.QKtwXl/venv` and
   the official `quick_validate.py` command completed with `Skill is valid!`.
-- Fresh-context trigger smoke test: PASS. An initial ephemeral `codex exec`
-  attempt was not usable because its read-only sandbox could not create the
-  Codex state database and the privileged retry would have used an external
-  model service. The test was instead run by a new in-thread evaluator with
-  `fork_turns="none"`, using the exact requested Chinese prompt, the installed
-  `hot-commentary` skill and its topic-card contract, and only minimal fixed
-  public candidate facts to avoid live-source nondeterminism. Its raw response
-  is retained at
-  `.superpowers/sdd/2026-07-25-hot-commentary-skill/task-7-fresh-smoke-output.md`.
-  A mechanical check found exactly three card headings, each of the 16 required
-  field labels exactly three times, no script/TXT output markers, and a final
-  explicit selection prompt. The evaluator stopped after that prompt.
+- Fresh-context trigger smoke test: PASS after fix round 1. The previous run
+  is superseded: it had been told to read the skill and its cards failed the
+  opening-summary and timestamp requirements. A new `fork_turns="none"`
+  evaluator received only the natural user request (including three optional
+  candidate facts); it was not told any skill path, schema, acceptance rule, or
+  intended fix. Its raw response is retained at
+  `.superpowers/sdd/2026-07-25-hot-commentary-skill/task-7-fresh-trigger-fix1-output.md`.
+  It independently returned the selection-card behavior, discarded the
+  incomplete candidates, and stopped after the selection prompt. Mechanical
+  checks found exactly three card headings; every one of the 16 fields exactly
+  three times; three exact `YYYY-MM-DD HH:mm` timestamps; opening-summary Han
+  counts of 159, 171, and 173; no script/TXT output; and no content after the
+  selection prompt. The evaluation interface exposes no internal
+  skill-invocation trace, so the independent trigger is evidenced by the
+  unhinted prompt and observable behavior rather than an invocation log.
