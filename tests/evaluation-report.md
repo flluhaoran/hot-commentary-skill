@@ -78,11 +78,15 @@ night-bus test artifact remains in the production archive.
   validation with `ModuleNotFoundError: No module named 'yaml'`. PyYAML was then
   installed only into `/private/tmp/hot-commentary-validator.QKtwXl/venv` and
   the official `quick_validate.py` command completed with `Skill is valid!`.
-- Fresh-context trigger smoke test: NOT RUN. An ephemeral, read-only `codex
-  exec` session was prepared with the required Chinese prompt. Its first run
-  could not create the Codex state database under the read-only sandbox. The
-  required escalated retry was rejected because opening a fresh session can send
-  the prompt and local skill/workspace contents to an external model service,
-  and the user had not explicitly authorized that disclosure. Consequently,
-  there is no evidence yet that a fresh agent selected the skill or stopped
-  after exactly three complete cards.
+- Fresh-context trigger smoke test: PASS. An initial ephemeral `codex exec`
+  attempt was not usable because its read-only sandbox could not create the
+  Codex state database and the privileged retry would have used an external
+  model service. The test was instead run by a new in-thread evaluator with
+  `fork_turns="none"`, using the exact requested Chinese prompt, the installed
+  `hot-commentary` skill and its topic-card contract, and only minimal fixed
+  public candidate facts to avoid live-source nondeterminism. Its raw response
+  is retained at
+  `.superpowers/sdd/2026-07-25-hot-commentary-skill/task-7-fresh-smoke-output.md`.
+  A mechanical check found exactly three card headings, each of the 16 required
+  field labels exactly three times, no script/TXT output markers, and a final
+  explicit selection prompt. The evaluator stopped after that prompt.
