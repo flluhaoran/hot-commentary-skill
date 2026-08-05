@@ -20,5 +20,7 @@ Context: The user has already received the cards and says 选择选题1，继续
 Acceptance:
 - No repeated topic-selection question.
 - Key facts are re-checked.
-- A 3–4 minute commentary is produced.
+- A 3–4 minute commentary is produced with `script-writer`, then revised with `humanizer-zh`.
+- The final script avoids mechanical “第一层、第二层、第三层” headings while preserving the required argument functions.
+- Facts and the 950–1300 Han-character body length are re-checked after humanization.
 - A verified TXT path is returned.

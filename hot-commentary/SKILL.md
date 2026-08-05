@@ -25,8 +25,9 @@ description: Use when the user wants recent hot topics, 热点评论, 自媒体�
 ```text
 explicit selection
 → re-check key facts
-→ use script-writer
-→ write complete script
+→ use script-writer for the argument draft
+→ use humanizer-zh (“说人话”) for the final spoken version
+→ re-check facts and body length after humanization
 → resolve safe TXT target
 → write TXT
 → verify file

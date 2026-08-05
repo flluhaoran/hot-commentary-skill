@@ -1,4 +1,4 @@
 interface:
   display_name: "热点评论"
-  short_description: "从近48小时热搜中筛选完整选题卡，确认后生成口播稿并归档TXT"
+  short_description: "从近48小时热搜筛选完整选题，确认后按说人话规范写稿并归档TXT"
   default_prompt: "使用 $hot-commentary 查看最近两天适合自媒体讲的热点，先给我完整选题卡，等我选择后再写稿。"

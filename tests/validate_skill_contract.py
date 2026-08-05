@@ -28,6 +28,7 @@ assert re.search(r"^description: Use when ", skill, re.MULTILINE)
 assert "ego-browser" in skill
 assert "hot-search-insight" in skill
 assert "script-writer" in skill
+assert "humanizer-zh" in skill
 assert "明确选择" in skill
 assert "停止" in skill
 assert "恰好三张" in card
@@ -46,6 +47,10 @@ assert re.search(
     re.DOTALL,
 ), "topic-card contract must require a pre-display card-format self-check"
 assert "950—1300" in script
+assert "humanizer-zh" in script
+assert "45/50" in script
+assert "不是强制标题模板" in script
+assert "重新计算正文汉字数" in script
 assert "/Users/zhangqiuyue/吕浩然/热点评论" in script
 assert "不得静默覆盖" in script
 assert re.search(
