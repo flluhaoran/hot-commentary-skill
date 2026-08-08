@@ -93,3 +93,28 @@ night-bus test artifact remains in the production archive.
   selection prompt. The evaluation interface exposes no internal
   skill-invocation trace, so the independent trigger is evidenced by the
   unhinted prompt and observable behavior rather than an invocation log.
+
+## Evidence-led revision — 2026-08-09
+
+- Static contract test: `python3 tests/validate_skill_contract.py` returned
+  `hot-commentary evidence-led contract: PASS`.
+- Official validator: PyYAML was installed only in the isolated temporary
+  environment `/private/tmp/hot-commentary-validator-20260809`; the official
+  `quick_validate.py` returned `Skill is valid!`.
+- Evidence-insufficient forward test: PASS. With only anonymous photos,
+  unverifiable comments, and a company denial, the evaluator refused to draft
+  or create a TXT, identified the decisive evidence gaps, and returned two full
+  replacement cards with all provisional-hypothesis labels.
+- Evidence-sufficient forward test: the first run formed a bounded verdict and
+  a clean 1217-character TXT, but exposed a downstream side effect: the generic
+  script writer also persisted the simulated script to its history. That exact
+  test record was deleted, and the contract was tightened to forbid writes to
+  script history, projects, templates, preferences, or global configuration.
+- Fresh rerun after the fix: PASS. The evaluator again reached the bounded
+  verdict that the environmental case and service replacement were incomplete,
+  while refusing to allege fake environmentalism or profit motive. It created
+  exactly one clean TXT and reported no writes to author profile, project,
+  preference database, script history, research archive, or workspace.
+- Privacy check: the public repository contains only the generic author-profile
+  contract. The confirmed author profile remains outside the repository at
+  `/Users/zhangqiuyue/吕浩然/.hot-commentary-data/author-profile.md`.
